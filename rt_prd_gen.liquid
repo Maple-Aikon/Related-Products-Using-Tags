@@ -1,0 +1,25 @@
+{% capture currentPrdTag %}{{ rt_prd_gen }}{% endcapture %}
+
+{% if tag == currentPrdTag %}
+    {% for product in collections.all.products %}     
+        {% for tag in product.tags %}
+            {% if tag == currentPrdTag %}
+
+                {% if product.title != currentProduct %}         
+                            
+                    <div class="related_prd">
+                      <a href="{{ product.url }}">
+                        <img src="{{ product.featured_image | product_img_url: "medium" }}"><br>
+                        {{ product.title }}<br>
+                        {{ product.price | money }}
+                      </a>
+                    </div>
+
+                {% else %}
+
+                {% endif %}     
+
+            {% endif%}
+        {% endfor %}
+    {% endfor %}
+{% endif %}

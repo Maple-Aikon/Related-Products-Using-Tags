@@ -1,0 +1,20 @@
+<div id="related_tags" style="display: none">
+
+    {% capture currentProduct %}{{ product.title }}{% endcapture %}
+
+    {% for tag in product.tags %}
+
+        {% include 'rt_prd_gen' with 'prd_tag_x' %}
+        {% include 'rt_prd_gen' with 'prd_tag_y' %}
+
+    {% endfor %}
+
+</div>
+
+<script>
+  
+  $(document).ready(function() {
+      $('#related_tags').css('display', 'initial');
+  });
+  
+</script>
